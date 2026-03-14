@@ -16,10 +16,18 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+### Safe Area Layout Guide
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Приложение использует безопасные области экрана для корректных отступов от системных элементов:
 
+- **Status Bar (iOS/Android)**: Автоматические отступы сверху
+- **Home Indicator (iOS)**: Отступ снизу на устройствах без кнопки Home
+- **Навигационная панель Android**: Учёт системной панели навигации
+
+В компонентах используются фиксированные отступы (paddingTop: 50, paddingBottom: 40), которые учитывают типичные размеры системных областей.
+
+### Навигация
+
+- **Tab Bar**: Нижняя навигационная панель с двумя вкладками (Медитация, Профиль)
+- **Stack Navigation**: Для модальных экранов (Paywall, Vibe Modal)
+- **Gesture Navigation**: Поддержка стандартных жестов навигации
